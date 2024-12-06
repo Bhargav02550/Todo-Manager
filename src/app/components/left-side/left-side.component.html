@@ -1,0 +1,21 @@
+<div class="taskboard">
+    <img src="../../../assets/to-do-list.png" alt="Loading..">
+    <h2>Todo Manager</h2>
+</div>
+<div class="list-container">
+    <ul class="list-group">
+        <li class="list-item" tabindex="0" *ngFor="let pro of project;">
+            <div class="delete" (click)="store_title(pro)">
+                <span>{{pro.title}}</span>
+                <a (click)="delete(pro.pid)"><img src="../../../assets/icons8-delete-48.png" alt="Delete" height="20"
+                        width="20"></a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<input type="text" *ngIf="showinput" [(ngModel)]="inputvalue" (keydown.enter)="saveinput()"
+    placeholder="Enter Project Name" class="toggle-input-field" />
+<div class="add-project" (click)="toggleinput()">
+    + Add new Project
+</div>

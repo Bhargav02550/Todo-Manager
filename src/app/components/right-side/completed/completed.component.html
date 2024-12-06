@@ -1,0 +1,38 @@
+<div class="header">
+    <div class="todo-completed">
+        • Completed
+    </div>
+    <div *ngIf="todo.length >= 1">
+        <button class="todo-completed-add-button-small" (click)="open_dialog_or_not()">
+            + Add New
+        </button>
+    </div>
+</div>
+<div class="scroll-div">
+    <div *ngFor="let td of completed" class="task-card"
+        (click)="openDialog(td.status,'Edit Task','Save',td.taskName,td.startDate,td.deadlineDate,td.taskId)">
+        <div class="task-name">
+            {{ td?.taskName || 'No task name available' }}
+        </div>
+        <div class="task-dates-row">
+            <div class="text-col">
+                Start Date
+                <br />
+                <div class="task-date-light-green">
+                    {{td.startDate}}
+                </div>
+            </div>
+            <div class="text-col">
+                Deadline
+                <br />
+                <div class="task-date-light-green">
+                    {{td.deadlineDate}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="todo-completed-add-button" (click)="open_dialog_or_not()" *ngIf=" completed.length == 0">
+        <p>+</p>
+        <p>Add New</p>
+    </button>
+</div>
