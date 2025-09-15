@@ -4,7 +4,7 @@ import {
   provideClientHydration,
 } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LeftSideComponent } from './components/left-side/left-side.component';
@@ -21,6 +21,10 @@ import { TodoListComponent } from './components/right-side/todo-list/todo-list.c
 import { InprogressComponent } from './components/right-side/inprogress/inprogress.component';
 import { InreviewComponent } from './components/right-side/inreview/inreview.component';
 import { CompletedComponent } from './components/right-side/completed/completed.component';
+import { CdkDrag, DragDropModule } from '@angular/cdk/drag-drop';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { CompletedComponent } from './components/right-side/completed/completed.
     InprogressComponent,
     InreviewComponent,
     CompletedComponent,
+    LoginComponent,
+    DashboardLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,8 +50,9 @@ import { CompletedComponent } from './components/right-side/completed/completed.
     MatInputModule,
     MatSelectModule,
     HttpClientModule,
+    DragDropModule,
   ],
-  providers: [provideClientHydration(), provideAnimationsAsync()],
+  providers: [provideClientHydration(), provideAnimationsAsync(), provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

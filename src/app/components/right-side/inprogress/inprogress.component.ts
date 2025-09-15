@@ -14,7 +14,7 @@ export class InprogressComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private SaveTaskService: SaveTaskService
-  ) {}
+  ) { }
 
   open_dialog_or_not() {
     if (!this.p_id) {
@@ -24,27 +24,27 @@ export class InprogressComponent implements OnInit {
         close: true,
         gravity: "top",
         position: "center",
-        style:{
+        style: {
           background: "rgb(252, 235, 235)",
           color: "black"
         }
       }).showToast();
-    } 
+    }
     else {
       this.openDialog('In Progress', 'Add New Task');
     }
-  }  
+  }
 
   openDialog(
     status: string,
-    heading:string,
-    operationType?:string,
+    heading: string,
+    operationType?: string,
     taskName?: string,
     startDate?: string,
     deadlineDate?: string,
     taskId?: string,
   ) {
-      this.dialog.open(PopUpComponent, {
+    this.dialog.open(PopUpComponent, {
       width: '670px',
       height: '395px',
       disableClose: true,
@@ -56,7 +56,7 @@ export class InprogressComponent implements OnInit {
         deadlineDate: deadlineDate || '',
         taskId: taskId || '',
         heading: heading,
-        operation:operationType,
+        operation: operationType,
         pid: this.p_id,
       },
     });
@@ -67,7 +67,7 @@ export class InprogressComponent implements OnInit {
   inProgress: any[] = [];
   inReview: any[] = [];
   completed: any[] = [];
-  p_id:string = '';
+  p_id: string = '';
 
   ngOnInit() {
     this.SaveTaskService.tasks_list.subscribe((tasks) => {
@@ -79,6 +79,6 @@ export class InprogressComponent implements OnInit {
       this.completed = tasks.filter((task) => task.status === 'Completed');
     });
 
-    this.SaveTaskService.selectproject.subscribe((project:any) => {if(project) this.p_id = project.pid});
+    this.SaveTaskService.selectproject.subscribe((project: any) => { if (project) this.p_id = project.pid });
   }
 }

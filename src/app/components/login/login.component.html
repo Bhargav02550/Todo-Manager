@@ -1,0 +1,28 @@
+<div class="auth">
+    <div class="auth-card">
+        <div class="auth-top">
+            <h1 class="title">Welcome back</h1>
+            <p class="subtitle">Please enter your details to sign in.</p>
+        </div>
+
+        <form class="auth-form" (ngSubmit)="login(email.value, password.value)">
+            <label class="field">
+                <span class="field-label">E-mail Address</span>
+                <input type="email" placeholder="you@example.com" required #email />
+            </label>
+            <label class="field">
+                <span class="field-label">Password</span>
+                <input type="password" placeholder="••••••••" required #password />
+            </label>
+
+            <div class="form-extra">
+                <label class="checkbox"><input type="checkbox" /> <span>Remember me</span></label>
+                <a href="#" class="link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="primary-btn">Sign in</button>
+
+            <p class="footnote">Don't have an account yet? <a href="#" class="link link-strong">Sign Up</a></p>
+        </form>
+    </div>
+</div>
