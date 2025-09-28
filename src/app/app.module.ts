@@ -24,6 +24,7 @@ import { CompletedComponent } from './components/right-side/completed/completed.
 import { CdkDrag, DragDropModule } from '@angular/cdk/drag-drop';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-l
     CompletedComponent,
     LoginComponent,
     DashboardLayoutComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

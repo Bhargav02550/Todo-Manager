@@ -28,7 +28,7 @@ export class AuthService {
         return localStorage.getItem('token');
     }
 
-    register(user: { name: string, email: string, password: string }) {
+    register(user: { firstName: string, lastName: string, email: string, password: string }) {
         return this.http.post(`${this.apiUrl}/register`, user);
     }
 }

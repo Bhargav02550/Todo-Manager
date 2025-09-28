@@ -1,0 +1,52 @@
+<div class="auth">
+    <div class="auth-card">
+        <div class="auth-top">
+            <h1 class="title">Create an account</h1>
+            <p class="subtitle">Please enter your details to sign up.</p>
+        </div>
+        <form class="auth-form" [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="name-fields">
+                <label class="field">
+                    <span class="field-label">First Name</span>
+                    <input type="text" placeholder="John" formControlName="firstName" />
+                    <span class="field-error" *ngIf="isFieldInvalid('firstName')">
+                        First name is required
+                    </span>
+                </label>
+
+                <label class="field">
+                    <span class="field-label">Last Name</span>
+                    <input type="text" placeholder="Doe" formControlName="lastName" />
+                    <span class="field-error" *ngIf="isFieldInvalid('lastName')">
+                        Last name is required
+                    </span>
+                </label>
+            </div>
+
+            <label class="field">
+                <span class="field-label">E-mail Address</span>
+                <input type="email" placeholder="you@example.com" formControlName="email" />
+                <span class="field-error" *ngIf="isFieldInvalid('email', 'required')">
+                    Email is required
+                </span>
+                <span class="field-error" *ngIf="isFieldInvalid('email', 'email')">
+                    Enter a valid email address
+                </span>
+            </label>
+
+            <label class="field">
+                <span class="field-label">Password</span>
+                <input type="password" placeholder="••••••••" formControlName="password" />
+                <span class="field-error" *ngIf="isFieldInvalid('password')">
+                    Password is required
+                </span>
+            </label>
+
+            <button class="primary-btn" type="submit">
+                <span>Sign up</span>
+            </button>
+
+            <p class="footnote">Already have an account? <a class="link link-strong" href="/login">Log in</a></p>
+        </form>
+    </div>
+</div>
